@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "350228327236",
+    "firebase_url": "https://ionicshoppinglist-16892.firebaseio.com",
+    "project_id": "ionicshoppinglist-16892",
+    "storage_bucket": "ionicshoppinglist-16892.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:350228327236:android:764d2cb7da3280eb",
+        "android_client_info": {
+          "package_name": "com.itechrar.gakkou"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "350228327236-5gltl20t9glpg6e72c65eti7kv5v1egk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2mlZmWpqshOFg9Y_sct_7cT_y0U0FkLk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

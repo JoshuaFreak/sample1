@@ -1,0 +1,8 @@
+{
+  "name": "Gakkou",
+  "app_id": "fd8a2816",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

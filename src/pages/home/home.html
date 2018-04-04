@@ -1,0 +1,107 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle left>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <!-- Welcome to GAKKOU (ISMS) {{user_data.first_name+' '+user_data.last_name}} ! -->
+      Welcome to GAKKOU ISMS
+    </ion-title>
+    <ion-buttons end>
+      <!-- <button navPush="AddShoppingItemPage" ion-button> -->
+    	<!-- <button navPush="UserPage" ion-button>
+    		<ion-icon name="add"></ion-icon>
+    	</button> -->
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-menu [content]="mycontent">
+  <ion-header>
+    <ion-navbar color="primary">
+      <button ion-button menuToggle right>
+        <ion-icon ios="ios-close-circle" md="md-close-circle"></ion-icon>
+      </button>
+      <ion-title>
+        Menu
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item><ion-icon ios="ios-list-box" md="md-list-box" style="color:#007ACC"> <b style="color:#464646">Attendance Monitoring</b></ion-icon></ion-item>
+      <ion-item><ion-icon ios="ios-list-box" md="md-list-box" style="color:#007ACC"> <b style="color:#464646">Attendance History</b></ion-icon></ion-item>
+      <ion-item><ion-icon ios="ios-list-box" md="md-list-box" style="color:#007ACC"> <b style="color:#464646">Fetching History</b></ion-icon></ion-item>
+      <ion-item><ion-icon ios="ios-list-box" md="md-list-box" style="color:#007ACC"> <b style="color:#464646">Anouncements</b></ion-icon></ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-nav #mycontent [root]="HomePage">
+
+</ion-nav>
+<!-- <ion-content padding>
+  <ion-list>
+    <ion-list-header>
+        Items
+    </ion-list-header>
+    <ion-item *ngFor="let item of shoppingList$ | async" detail-push navPush="EditShoppingItemPage" [navParams]="{item : item}">
+        {{item.name}}
+    </ion-item>
+  </ion-list>
+</ion-content> -->
+
+<ion-content style="background: linear-gradient(to top, #e7e7e7 0%, #ffffff 100%);">
+  <ion-fab bottom right>
+    <button ion-fab mini>
+      <ion-icon name="arrow-dropleft"></ion-icon>
+    </button>
+    <ion-fab-list side="left">
+      <button (click)="logOut(user_id,registration_token)" ion-fab style="width:100px;border-radius:0px !important;font-family: arial;">
+        <ion-icon>Sign out</ion-icon>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+  <ion-list inset>
+    <h4 style="color:#fff;background-color:#19AC52;text-align:center;padding-top:7px;padding-bottom:7px;">Attendance Monitoring</h4>
+  </ion-list>
+  <ion-list inset>
+    <div style="color:#fff;background-color:#E2A74F;text-align:center;padding-top:7px;padding-bottom:7px;">
+    Anouncement: This is a sample anouncement
+    <a>view more.</a>
+    </div>
+  </ion-list>
+  <ion-list inset>
+    <!-- <ion-item *ngFor="let child of user_child;let i = index" style="background: linear-gradient(to top left, #ffffff00 0%, #bbffb1 100%);"> -->
+        <ion-card text-center *ngFor="let child of user_child;let i = index" style="padding-top:10px;background-image: url('assets/imgs/card-background.jpg');background-repeat: no-repeat;background-position: center;background-size:
+        cover;">
+          <img style="width:120px;border-radius: 50%;margin: auto;border: 2px solid rgb(48, 155, 255);" src="{{apiAssetUrl+child.img}}"/>
+          <ion-card-content style="background-color:rgb(255, 255, 255);margin-top:10px;">
+            <ion-card-title>
+              <h1><b>{{child.first_name+' '+child.middle_name+' '+child.last_name}}</b></h1>
+            </ion-card-title>
+            <p *ngIf="user_child_last_log[i] == 'no_data'">
+              <ion-icon name="radio-button-on" style="zoom:1.5;"></ion-icon>
+              <b style="font-size:15px;padding-top:-10px;"> OUT</b>
+            </p>
+            <p *ngIf="user_child_last_log[i] == 0">
+              <ion-icon name="radio-button-on" style="color:rgb(168, 0, 0);zoom:1.5;"></ion-icon>
+              <b style="font-size:15px;padding-top:-10px;"> OUT</b>
+            </p>
+            <p *ngIf="user_child_last_log[i] != 0 && user_child_last_log[i] != 'no_data'">
+              <ion-icon name="radio-button-on" style="color:#00A800;zoom:1.5;"></ion-icon>
+              <b style="font-size:15px;padding-top:-10px;"> IN</b>
+            </p>
+            <p>
+            <div style="width:50%;float:left" align="center">
+              <button ion-button (click)="checkActionLog(child.student_id)" style="width:95% !important;">Check Today's Log</button> 
+              <button ion-button (click)="checkActionLogHistory(child.student_id)" style="width:95% !important;">Attendance History</button>
+            </div>
+            <div style="width:50%;float:left" align="center">
+              <button ion-button (click)="checkLog(child.student_id)" style="width:95% !important;">Check Attendance</button> 
+              <button ion-button style="width:95% !important;">Fetching History</button>
+            </div>
+            <br/><br/><br/><br/>
+          </ion-card-content>
+        </ion-card>
+    <!-- </ion-item> -->
+  </ion-list>
+</ion-content>

@@ -1,0 +1,39 @@
+<!--
+  Generated template for the ShowLogPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title><ion-icon name="arrow-back" (click)="returnHome()"> </ion-icon> &nbsp;&nbsp;Today's Log</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+  <ion-list *ngFor="let child of user_child;let i = index">
+    <ion-item *ngIf="(i%2) == 0" style="background-color:rgb(225, 255, 198);margin-bottom:2px;">
+      <ion-avatar item-start>
+        <img src="assets/imgs/enter.ico">
+      </ion-avatar>
+      <h2>Time In</h2>
+      <h3>{{child.description}}</h3>
+      <!-- <p>Your child {{child.first_name+' '+child.middle_name+' '+child.last_name+''}} entered</p> -->
+      <!-- <p>school premises at exactly</p> -->
+      <p><b style="font-size:25px;">{{child.time_log}}</b></p>
+    </ion-item>
+    <ion-item *ngIf="(i%2) != 0" style="background-color:rgb(212, 236, 255);margin-bottom:2px;">
+      <ion-avatar item-start>
+        <img src="assets/imgs/exit.png">
+      </ion-avatar>
+      <h2>Time Out</h2>
+      <h3>{{child.description}}</h3>
+      <!-- <p>Your child {{child.first_name+' '+child.middle_name+' '+child.last_name+''}} exited</p> -->
+      <!-- <p>school premises at exactly</p> -->
+      <p>
+        <b style="font-size:25px;">{{child.time_log}}</b>
+      </p>
+    </ion-item>
+  </ion-list>
+</ion-content>

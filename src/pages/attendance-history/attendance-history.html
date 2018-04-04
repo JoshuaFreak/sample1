@@ -1,0 +1,33 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>
+      <ion-icon name="arrow-back" (click)="returnHome()"> </ion-icon> &nbsp;&nbsp;Attendance History</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+  <!-- <ion-list *ngFor="let child of user_child;let i = index">
+    <ion-item>
+      <p>{{ child.date }}</p>
+    </ion-item>
+  </ion-list> -->
+  <ion-list *ngFor="let child of user_child;let i = index">
+    <ion-card-content *ngIf="i < 10">
+        <h4 style="color:#1E1E1E">{{ child.date+' '}}</h4> <ion-icon ios="ios-clock" md="md-clock" style="color:#16A05C"> Morning in: {{child.time_in}} - Lunch out: {{child.lunch_out}} </ion-icon>
+        <ion-icon ios="ios-clock" md="md-clock" style="color:#16A05C"> Lunch in: {{child.lunch_in}} - Afternoon out: {{child.time_out}}</ion-icon>
+    </ion-card-content>
+  </ion-list>
+  <ion-list *ngFor="let child1 of user_child1;let i = index">
+    <ion-card-content>
+        <h4 style="color:#1E1E1E">{{ child1.date+' '}}</h4> <ion-icon ios="ios-clock" md="md-clock" style="color:#16A05C"> Morning in: {{child1.time_in}} - Lunch out: {{child1.lunch_out}} </ion-icon>
+        <ion-icon ios="ios-clock" md="md-clock" style="color:#16A05C"> Lunch in: {{child1.lunch_in}} - Afternoon out: {{child1.time_out}}</ion-icon>
+    </ion-card-content>
+  </ion-list>
+  <button ion-button color="light" style="width:100% !important;color:#488AFF;" (click)="doInfinite($event)">Load More</button>
+<!-- <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+  <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+  </ion-infinite-scroll-content>
+</ion-infinite-scroll> -->
+    
+</ion-content>
